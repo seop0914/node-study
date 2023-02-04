@@ -1,5 +1,5 @@
-const UserStorage = require("../../model/UserStorage");
 const User = require("../../model/User");
+const Board = require("../../model/Board");
 
 const output = {
   home: (req, res) => {
@@ -10,6 +10,15 @@ const output = {
   },
   register: (req, res) => {
     res.render("home/register");
+  },
+  list: async (req, res) => {
+    const list = await Board.list();
+    res.render("home/boardList", { list: list }, function (err, html) {
+      if (err) {
+        console.log(err);
+      }
+      res.end(html); // 응답 종료
+    });
   },
 };
 

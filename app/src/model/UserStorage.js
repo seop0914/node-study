@@ -5,7 +5,6 @@ class UserStorage {
     return new Promise((resolve, reject) => {
       const query = "SELECT id, name, password FROM users WHERE id = ?";
       db.query(query, [body.id, body.password], (err, data) => {
-        console.log(data[0]);
         if (err) reject(`${err}`);
         if (data.length !== 0) resolve(data[0]);
         else resolve({ id: false });
