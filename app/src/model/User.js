@@ -5,11 +5,11 @@ class User {
     this.body = body;
   }
   async login() {
-    const { id, password } = await UserStorage.getUserInfo(this.body);
+    const { id, password, name } = await UserStorage.getUserInfo(this.body);
     try {
       if (id) {
         if (password === this.body.password) {
-          return { success: true };
+          return { success: true, id, name };
         }
         return { success: false, msg: "비밀번호가 일치하지 않습니다." };
       }

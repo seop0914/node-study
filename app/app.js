@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const session = require("./src/config/session");
 
 //라우팅
 const home = require("./src/routes/home");
@@ -12,6 +13,7 @@ app.set("view engine", "ejs");
 app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session);
 
 app.use("/", home); //use => 미들 웨어 사용
 app.use("/board", board);
