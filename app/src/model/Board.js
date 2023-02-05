@@ -5,7 +5,7 @@ class Board {
     this.body = body;
   }
   static async list() {
-    const posts = await BoardStorage.getPosts();
+    const posts = await BoardStorage.getList();
     try {
       return posts;
     } catch (err) {
@@ -16,6 +16,14 @@ class Board {
     const result = await BoardStorage.write(this.body);
     try {
       return result;
+    } catch (err) {
+      return { success: false };
+    }
+  }
+  async post() {
+    const post = await BoardStorage.getPost(this.body.id);
+    try {
+      return post;
     } catch (err) {
       return { success: false };
     }

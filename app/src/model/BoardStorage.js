@@ -1,7 +1,7 @@
 const db = require("../config/db");
 
 class BoardStorage {
-  static getPosts() {
+  static getList() {
     return new Promise((resolve, reject) => {
       const query = "SELECT * FROM board ORDER BY id DESC";
       db.query(query, (err, data) => {
@@ -21,6 +21,15 @@ class BoardStorage {
           else resolve({ success: true });
         }
       );
+    });
+  }
+  static getPost(id) {
+    return new Promise((resolve, reject) => {
+      const query = "SELECT * FROM board WHERE id = ?";
+      db.query(query, [id], (err, data) => {
+        if (err) reject(err);
+        resolve(data[0]);
+      });
     });
   }
 }

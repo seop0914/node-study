@@ -18,7 +18,9 @@
             <p class="id"><%= list[i].writer %></p>
             <p class="date"><%= list[i].regDate %></p>
           </div>
-          <a href="" class="title"><%= list[i].title %></a>
+          <a href="/board/post?id=<%= list[i].id %>" class="title"
+            ><%= list[i].title %></a
+          >
         </div>
         <% } %>
       </div>

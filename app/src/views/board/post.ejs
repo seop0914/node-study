@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/board/post.css" />
+    <script src="/js/board/post.js" defer></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1><%= post.id %>번 게시글</h1>
+      <div id="title-box">
+        <h2 id="title"><%= post.title %></h2>
+      </div>
+      <div id="writer-box">
+        <h3 id="writer"><%= post.writer %></h3>
+      </div>
+      <div id="content-box">
+        <p id="content"><%= post.content %></p>
+      </div>
+      <div id="button-group">
+        <a id="prev" href="/board/list">목록</a>
+        <button id="edit-btn">수정</button>
+      </div>
+    </div>
+  </body>
+</html>
