@@ -11,15 +11,6 @@ const output = {
   register: (req, res) => {
     res.render("home/register");
   },
-  list: async (req, res) => {
-    const list = await Board.list();
-    res.render("home/boardList", { list: list }, function (err, html) {
-      if (err) {
-        console.log(err);
-      }
-      res.end(html); // 응답 종료
-    });
-  },
 };
 
 const process = {

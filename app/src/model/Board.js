@@ -12,6 +12,14 @@ class Board {
       return { success: false };
     }
   }
+  async write() {
+    const result = await BoardStorage.write(this.body);
+    try {
+      return result;
+    } catch (err) {
+      return { success: false };
+    }
+  }
 }
 
 module.exports = Board;
