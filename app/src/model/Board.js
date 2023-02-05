@@ -28,6 +28,14 @@ class Board {
       return { success: false };
     }
   }
+  async edit() {
+    const result = await BoardStorage.setPost(this.body);
+    try {
+      return result;
+    } catch (err) {
+      return { success: false };
+    }
+  }
 }
 
 module.exports = Board;

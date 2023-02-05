@@ -32,6 +32,20 @@ class BoardStorage {
       });
     });
   }
+  static setPost(boardInfo) {
+    console.log(boardInfo)
+    return new Promise((resolve, reject) => {
+      const query =
+        "UPDATE board SET title = ?, content = ?, update_date = CURRENT_TIMESTAMP WHERE id = ?";
+      db.query(
+        query,
+        [boardInfo.title, boardInfo.content, boardInfo.id],
+        (err, data) => {
+          if (err) reject(err);
+          else resolve({ success: true });
+        });
+    });
+  }
 }
 
 module.exports = BoardStorage;

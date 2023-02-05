@@ -43,12 +43,10 @@ p {
 #button-group {
   margin: 20px auto;
 }
-#edit-btn {
-  margin-right: 20px;
-  text-decoration: none;
+#complete-btn {
   width: 150px;
   height: 60px;
-  padding: 20px 50px;
+  padding: 10px 20px;
   background-color: #4caf50;
   color: #fff;
   border: none;

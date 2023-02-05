@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/board/post.css" />
-    <script src="/js/board/post.js" defer></script>
   </head>
   <body>
     <div id="main">
@@ -22,7 +21,7 @@
       </div>
       <div id="button-group">
         <a id="prev" href="/board/list">목록</a>
-        <button id="edit-btn">수정</button>
+        <a id="edit-btn" href="/board/edit?id=<%= post.id %>">수정</a>
       </div>
     </div>
   </body>

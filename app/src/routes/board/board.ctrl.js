@@ -23,12 +23,27 @@ const output = {
       res.end(html); // 응답 종료
     });
   },
+  edit: async (req, res) => {
+    const board = new Board(req.query);
+    const post = await board.post();
+    res.render("board/edit", { post }, (err, html) => {
+      if (err) {
+        console.log(err);
+      }
+      res.end(html); // 응답 종료
+    });
+  },
 };
 
 const process = {
   write: async (req, res) => {
     const board = new Board(req.body);
     const response = await board.write();
+    return res.json(response);
+  },
+  edit: async (req, res) => {
+    const board = new Board(req.body);
+    const response = await board.edit();
     return res.json(response);
   },
 };
