@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/home/myPage.js" defer></script>
+    <link rel="stylesheet" href="/css/home/register.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form">
+          <p id="id"><%= info.id %></p>
+          <input
+            type="text"
+            id="name"
+            placeholder="이름"
+            value="<%= info.name %>"
+          />
+          <input type="password" id="password" placeholder="비밀번호" />
+          <input
+            type="password"
+            id="password-check"
+            placeholder="비밀번호 확인"
+          />
+          <button type="button" id="register-btn">수정 완료</button>
+        </form>
+        <p><%= session.name %></p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- Copyright (c) 2023 by Aigars Silkalns (https://codepen.io/colorlib/pen/rxddKy) -->

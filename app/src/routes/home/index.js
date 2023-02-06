@@ -12,4 +12,7 @@ router.get("/logout", ctrl.process.logout);
 router.get("/register", ctrl.output.register);
 router.post("/register", ctrl.process.register);
 
+router.get("/myPage", ctrl.output.myPage);
+router.post("/update", ctrl.process.update);
+
 module.exports = router;

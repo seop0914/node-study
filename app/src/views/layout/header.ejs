@@ -5,7 +5,7 @@
   </div>
   <div id="my-info">
     <% if(session.login) { %>
-    <a href="/user?id=<%= session.sessionID %>">내 정보</a>
+    <a href="/myPage">내 정보</a>
     <a href="/logout">로그아웃</a>
     <% } else { %>
     <a href="/login">로그인</a>

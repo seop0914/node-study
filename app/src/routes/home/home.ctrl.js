@@ -16,6 +16,11 @@ const output = {
   register: (req, res) => {
     res.render("home/register");
   },
+  myPage: async (req, res) => {
+    const user = new User(req.session.sessionID);
+    const info = await user.getUserInfo();
+    res.render("home/myPage", { info });
+  },
 };
 
 const process = {
@@ -36,6 +41,14 @@ const process = {
   register: async (req, res) => {
     const user = new User(req.body);
     const response = await user.register();
+    return res.json(response);
+  },
+  update: async (req, res) => {
+    const user = new User(req.body);
+    const response = await user.update();
+    if (response.success) {
+      req.session.name = response.name;
+    }
     return res.json(response);
   },
 };

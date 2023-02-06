@@ -28,6 +28,28 @@ class User {
       return { success: false };
     }
   }
+
+  async getUserInfo() {
+    const info = await UserStorage.getUserInfo(this.body);
+    try {
+      if (info.id) {
+        return info;
+      }
+      return { success: false };
+    } catch (err) {
+      return { success: false };
+    }
+  }
+
+  async update() {
+    const result = await UserStorage.update(this.body);
+    try {
+      if (result.success) return { success: true };
+      return { success: false };
+    } catch (err) {
+      return { success: false };
+    }
+  }
 }
 
 module.exports = User;
