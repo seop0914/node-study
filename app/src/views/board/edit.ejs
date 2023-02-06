@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/board/edit.css" />
+    <link rel="stylesheet" href="/css/layout/header.css" />
     <script src="/js/board/edit.js" defer></script>
   </head>
   <body>
+    <%- include("../layout/header") %>
     <div id="main">
       <input id="id" type="hidden" value="<%= post.id %>" />
       <h1>게시글 수정하기</h1>

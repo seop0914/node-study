@@ -3,17 +3,12 @@ const Board = require("../../model/Board");
 
 const output = {
   home: (req, res) => {
-    const session = req.session;
-    if (session.name) {
-      res.render("home/index", { session }, function (err, html) {
-        if (err) {
-          console.log(err);
-        }
-        res.end(html); // 응답 종료
-      });
-    } else {
-      res.render("error/error");
-    }
+    res.render("home/index", { session: req.session }, function (err, html) {
+      if (err) {
+        console.log(err);
+      }
+      res.end(html); // 응답 종료
+    });
   },
   login: (req, res) => {
     res.render("home/login");
@@ -30,8 +25,13 @@ const process = {
     if (response.success) {
       req.session.name = response.name;
       req.session.sessionID = response.id;
+      req.session.login = true;
     }
     return res.json(response);
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
   },
   register: async (req, res) => {
     const user = new User(req.body);

@@ -22,7 +22,7 @@ button.addEventListener("click", () => {
     .then((res) => {
       if (res.success) {
         alert("게시글이 수정되었습니다.");
-        location.href = "/board/list";
+        location.href = "/board";
       } else {
         alert("수정 실패!");
       }

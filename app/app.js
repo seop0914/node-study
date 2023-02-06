@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const morgan = require("morgan");
 const session = require("./src/config/session");
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session);
+app.use(morgan("dev"));
 
 app.use("/", home); //use => 미들 웨어 사용
 app.use("/board", board);

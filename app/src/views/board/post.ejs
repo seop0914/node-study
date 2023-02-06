@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/board/post.css" />
+    <link rel="stylesheet" href="/css/layout/header.css" />
   </head>
   <body>
+    <%- include("../layout/header") %>
     <div id="main">
       <h1><%= post.id %>번 게시글</h1>
       <div id="title-box">
@@ -21,7 +23,9 @@
       </div>
       <div id="button-group">
         <a id="prev" href="/board/list">목록</a>
+        <% if(writer) { %>
         <a id="edit-btn" href="/board/edit?id=<%= post.id %>">수정</a>
+        <% } %>
       </div>
     </div>
   </body>
