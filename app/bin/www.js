@@ -1,6 +1,6 @@
 const app = require("../app");
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log("연결 성공");
 });
